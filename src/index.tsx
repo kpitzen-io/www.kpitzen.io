@@ -1,0 +1,21 @@
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { loadBlogPosts } from './actions/blogPostActions';
+import { loadProjects } from './actions/projectActions';
+import App from './App';
+import './index.css';
+import registerServiceWorker from './registerServiceWorker';
+import configureStore from './store/configureStore';
+
+const store = configureStore(undefined);
+store.dispatch<any>(loadBlogPosts());
+store.dispatch<any>(loadProjects());
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root') as HTMLElement
+);
+registerServiceWorker();
