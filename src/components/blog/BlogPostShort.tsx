@@ -14,7 +14,6 @@ const BlogPostShort = (props: IBlogPost) => {
       <p>{props.abbText}</p>
       <footer>
         <Link className="button special" to={{pathname:'/blog/' + props.filename}}>More</Link>
-        {/* { <a href={props.url} className="button special">{"More"}</a> } */}
       </footer>
     </article>
   )

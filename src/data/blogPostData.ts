@@ -6,16 +6,16 @@ const blogPosts = [
     "categories": ["update"],
     "filename": "welcome",
     "title": "Welcome to my GitHub page!",
-    "source": "../../pages/welcome"
+    "source": "./welcome/index.md"
   },
   {
     "key": 1,
     "postdate": "2017-05-23T22:29:28-05:00",
     "abbText": "So, today marks the first (real) day of development on Flint (the game we currently have no name for). I’ve implemented some of the basics of 2d-action/adventure games. Namely, dashing, and double-jumping.",
     "categories": ["update"],
-    "filename": "first-real-days-work",
+    "filename": "introductory-post",
     "title": "Getting Started",
-    "source": "../../pages/first-real-days-work"
+    "source": "./introductory-post/index.md"
   },
   {
     "key": 2,
@@ -24,7 +24,7 @@ const blogPosts = [
     "categories": ["update"],
     "filename": "dashing-ahead",
     "title": "Dashing Ahead",
-    "source": "../../pages/dashing-ahead"
+    "source": "./dashing-ahead/index.md"
   },
   {
     "key": 3,
@@ -33,7 +33,7 @@ const blogPosts = [
     "categories": ["webdev"],
     "filename": "new-blog-direction",
     "title": "New Blog Direction",
-    "source": "../../pages/new-blog-direction"
+    "source": "./new-blog-direction/index.md"
   },
   {
     "key": 4,
@@ -42,7 +42,7 @@ const blogPosts = [
     "categories": ["webdev"],
     "filename": "getting-started",
     "title": "Baby Steps",
-    "source": "../../pages/getting-started"
+    "source": "./getting-started/index.md"
   }
 ]
 

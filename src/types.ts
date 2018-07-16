@@ -6,6 +6,7 @@ export interface IBlogPost {
   filename: string;
   title: string;
   source: string;
+  fileFound?: boolean;
 }
 
 export interface IProjectProps {
@@ -13,4 +14,8 @@ export interface IProjectProps {
   name: string,
   description: string,
   moreUrl: string
+}
+
+export interface IRenderedBlogPost {
+  blogPost: string
 }

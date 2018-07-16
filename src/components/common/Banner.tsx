@@ -1,10 +1,15 @@
 import * as React from 'react';
 
-export const Banner = () => {
+export interface IBannerProps {
+  headerText: string;
+  paragraphText: string;
+}
+
+export const Banner = (props: IBannerProps) => {
   return (
     <section id="banner">
-      <h1>KPitzen Development</h1>
-      <p>Object Oriented, Functional, Scalable</p>
+      <h1>{props.headerText}</h1>
+      <p>{props.paragraphText}</p>
     </section>
   );
 }

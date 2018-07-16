@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { loadBlogPosts } from './actions/blogPostActions';
+import { loadBlogPosts, loadBlogPostFileNames } from './actions/blogPostListActions';
 import { loadProjects } from './actions/projectActions';
 import App from './App';
 import './index.css';
@@ -11,6 +11,24 @@ import configureStore from './store/configureStore';
 const store = configureStore(undefined);
 store.dispatch<any>(loadBlogPosts());
 store.dispatch<any>(loadProjects());
+
+// const blogPostName = 'welcome';
+
+
+
+// directory, useSubdirectories: boolean, regexp
+// @ts-ignore
+const context = require.context('!file-loader!./pages', true, /index.md/);
+
+store.dispatch<any>(loadBlogPostFileNames(context.keys()));
+
+// alert(context.keys());
+// now do require('file-loader')
+
+// // @ts-ignore
+// import(`!file-loader!./pages/${blogPostName}/index.md`).then( src =>  {
+//   alert(src);
+// });
 
 ReactDOM.render(
   <Provider store={store}>

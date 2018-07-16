@@ -2,12 +2,16 @@ import * as types from '../types';
 
 interface IApplicationState {
   blogPosts: types.IBlogPost[],
-  projectList: types.IProjectProps[]
+  projectList: types.IProjectProps[],
+  blogPost: types.IRenderedBlogPost,
 }
 
 const initialApplicationState: IApplicationState = {
   blogPosts: [],
-  projectList: []
+  projectList: [],
+  blogPost: {
+    blogPost: ''
+  },
 }
 
 export default initialApplicationState;

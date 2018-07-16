@@ -15,8 +15,6 @@ import { HomePage } from './components/home/HomePage';
 
 // import logo from './logo.svg';
 
-// tslint:disable:object-literal-sort-keys
-
 interface IAppState {
   ajaxCallsInProgress: number;
 }
@@ -25,8 +23,6 @@ interface IAppProps {
   loading?: boolean;
 }
 
-// tslint:enable:object-literal-sort-keys
-
 class App extends React.Component<IAppProps, IAppState> {
   public render() {
     return (
@@ -34,7 +30,7 @@ class App extends React.Component<IAppProps, IAppState> {
         <div className="App">
           <Header />
           <Route exact={true} path="/" component={ HomePage } />
-          <Route path="/blog" component={ BlogPage } />
+          <Route exact={true} path="/blog" component={ BlogPage } />
           <Route path="/blog/:id" component={ BlogPageLong } />
           <Footer />
         </div>

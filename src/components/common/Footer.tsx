@@ -5,6 +5,10 @@ export const Footer = () => {
     <footer id="footer">
     <div className="inner">
       <div className="flex">
+        <div className="copyright">
+            &copy; Kyle Pitzen: <a href="https://templated.co">TEMPLATED</a>.
+        </div>
+
         <ul className="icons">
           <li><a href="https://www.facebook.com/kyle.pitzen" className="icon fa-facebook"><span className="label">Facebook</span></a></li>
           <li><a href="https://twitter.com/slobbishbody" className="icon fa-twitter"><span className="label">Twitter</span></a></li>

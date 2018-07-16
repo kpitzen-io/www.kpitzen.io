@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@types/react-router-dom": "^4.2.7",
+    "file-loader": "^1.1.11",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-markdown": "^3.3.4",
@@ -30,6 +31,7 @@
     "@types/react-redux": "^6.0.4",
     "@types/recharts": "^1.0.24",
     "@types/redux-immutable-state-invariant": "^2.0.4",
+    "@types/webpack": "^4.4.6",
     "typescript": "^2.9.2"
   }
 }

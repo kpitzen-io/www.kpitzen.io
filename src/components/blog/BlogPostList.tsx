@@ -7,6 +7,7 @@ import BlogPostShort from './BlogPostShort';
 
 interface IBlogPostListProps {
   blogPostList: IBlogPost[];
+  shortList?: boolean;
 }
 
 const mapStateToProps = (state: RootState) => {
@@ -30,7 +31,12 @@ class BlogPostList extends React.Component<IBlogPostListProps> {
           </header>
           <div className="flex flex-2">
             <ul>
-              {this.props.blogPostList.map(blogPost => <BlogPostShort key={blogPost.filename} {...blogPost} />)}
+              {
+                this.props.blogPostList.slice(this.props.shortList ? -4 : undefined
+                  , this.props.shortList ? -1 : undefined)
+                .sort((a, b) => b.key - a.key)
+                .map(blogPost => <BlogPostShort key={blogPost.filename} {...blogPost} />)
+              }
             </ul>
           </div>
         </div>
