@@ -13,17 +13,11 @@ store.dispatch<any>(loadBlogPosts());
 store.dispatch<any>(loadProjects());
 
 // @ts-ignore Comes from webpack
-const context = require.context('!file-loader!./pages', true, /index.md/);
+const context = require.context('!file-loader!./assets/pages', true, /index.md/);
+// tslint:disable-next-line
+console.log(context.keys());
 
 store.dispatch<any>(loadBlogPostFileNames(context.keys()));
-
-// alert(context.keys());
-// now do require('file-loader')
-
-// // @ts-ignore
-// import(`!file-loader!./pages/${blogPostName}/index.md`).then( src =>  {
-//   alert(src);
-// });
 
 ReactDOM.render(
   <Provider store={store}>

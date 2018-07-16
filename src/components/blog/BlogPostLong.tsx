@@ -48,13 +48,24 @@ class BlogPostLong extends React.Component<IBlogPostLongProps, IBlogPostLongStat
     );
   }
 
-  private loadDynamicData = async (id: string) => {
-    const url: string = await import(`!file-loader!../../pages/${id}/index.md`);
-
+  public loadDynamicData = async (id: string) => {
+    // tslint:disable-next-line
+    // debugger;
+    const url: string = await import(/* webpackMode: lazy */ `!file-loader!../../assets/pages/${id}/index.md`);
+    // tslint:disable-next-line
+    console.log(url);
+    // tslint:disable-next-line
+    // debugger;
     const response = await fetch(url);
-
+    // tslint:disable-next-line
+    // debugger;
+    // tslint:disable-next-line
+    console.log(response);
     const content = await response.text();
-
+    // tslint:disable-next-line
+    // debugger;    
+    // tslint:disable-next-line
+    console.log(content);
     this.setState({ id, content });
   };
 }

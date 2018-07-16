@@ -11,6 +11,14 @@ import { Footer } from './components/common/Footer';
 import { Header } from './components/common/Header';
 import { HomePage } from './components/home/HomePage';
 
+
+/**
+ * Needed to perform a dummy import until this webpack 4 error with dynamic imports is fixed:
+ * https://github.com/webpack/webpack/issues/6587
+ */
+// tslint:disable-next-line
+import(/* webpackChunkName: "noop" */ `./dummy.js`).then(() => {});
+
 // import { Graph } from './components/GraphComponent';
 
 // import logo from './logo.svg';
