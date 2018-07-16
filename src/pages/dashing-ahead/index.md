@@ -1,10 +1,3 @@
----
-layout: post
-title:  "Dashing Ahead"
-date:   2017-05-24T17:47:28-0500
-categories: update
----
-
 It's a good thing I didn't talk about my implementation of dashing yesterday, since I enhanced and reworked a good portion of it today.  Most of my evening was spent getting a personal website hosted on AWS, and since I've never done anything like that before, it was a bit of a learning experience (turns out, a lot of the internet is just pointers).
 
 Dashing in our game is a pretty simple mechanic.  When the player presses a button, I want to have our character move in a direction very quickly, but for a very short amount of time.  I'll walk through how this was implemented.  First, something we didn't talk about in the last post ({{ site.baseurl }}{% post_url 2017-05-23-first-real-days-work %}) is the idea of keybinding.  `Jump()` already had a default keybind, but since we're adding an entirely new mechanic, we needed to create a new one.  In UE4, that looks like this:

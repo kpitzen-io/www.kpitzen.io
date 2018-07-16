@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@types/react-router-dom": "^4.2.7",
     "file-loader": "^1.1.11",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
@@ -29,6 +28,7 @@
     "@types/react": "^16.4.6",
     "@types/react-dom": "^16.0.6",
     "@types/react-redux": "^6.0.4",
+    "@types/react-router-dom": "^4.2.7",
     "@types/recharts": "^1.0.24",
     "@types/redux-immutable-state-invariant": "^2.0.4",
     "@types/webpack": "^4.4.6",

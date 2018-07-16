@@ -1,10 +1,3 @@
----
-layout: post
-title:  "Baby Steps"
-date:   2017-08-27T10:02:28-0500
-categories: webdev
----
-
 Today, we're going to talk about hosting a static website on AWS.
 
 This post will assume basic knowledge of:

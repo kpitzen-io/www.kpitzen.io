@@ -1,9 +1,3 @@
----
-layout: post
-title:  "Getting Started"
-date:   2017-05-23T22:29:28-0500
-categories: update
----
 So, today marks the first (real) day of development on Flint (the game we currently have no name for).  I've implemented some of the basics of 2d-action/adventure games.  Namely, dashing, and double-jumping.
 
 Of the two, double-jumping was definitely the less involved.  In the header, I overrode the following builtin functions:

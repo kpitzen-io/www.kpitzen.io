@@ -1,10 +1,3 @@
----
-layout: post
-title:  "New Blog Direction"
-date:   2017-08-21T17:47:28-0500
-categories: webdev
----
-
 This blog is about to take a sudden, and unexpected left turn.  I've been moved to a very different position in my day job, and along with this new position, have been tasked with learning as much as possible about several technologies.  In doing so, I've discovered that, though resources exist in several places for each of the technologies I'm investigating, there is very little in the way of consolidated vertical stacks of documentation.  If you want to learn how to do something in React, for example, it's relatively straightforward.  But the web isn't built on singular bits of tech.  The tough parts happen in between - how do you tie these things together?
 
 That's what I'm going to attempt to describe.  I've reached a point with my own site where I've learned a bit about how to build things in my architecture, and believe there is value in sharing that knowledge.  So, for the forseeable future, I'm going to do my best to walk through the steps required to build a reactive website in the following tech stack:

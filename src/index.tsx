@@ -12,12 +12,7 @@ const store = configureStore(undefined);
 store.dispatch<any>(loadBlogPosts());
 store.dispatch<any>(loadProjects());
 
-// const blogPostName = 'welcome';
-
-
-
-// directory, useSubdirectories: boolean, regexp
-// @ts-ignore
+// @ts-ignore Comes from webpack
 const context = require.context('!file-loader!./pages', true, /index.md/);
 
 store.dispatch<any>(loadBlogPostFileNames(context.keys()));
