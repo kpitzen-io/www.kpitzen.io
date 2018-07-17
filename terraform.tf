@@ -11,7 +11,7 @@ terraform {
 }
 
 resource "aws_s3_bucket" "prod_bucket" {
-  bucket = "prod.kpitzen.io"
+  bucket = "prod-kpitzen.io"
   acl    = "private"
 
   tags {
@@ -21,7 +21,7 @@ resource "aws_s3_bucket" "prod_bucket" {
 }
 
 resource "aws_s3_bucket" "dev_bucket" {
-  bucket = "dev.kpitzen.io"
+  bucket = "dev-kpitzen.io"
   acl    = "private"
 
   tags {
