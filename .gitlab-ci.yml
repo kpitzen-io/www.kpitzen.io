@@ -1,0 +1,49 @@
+stages:
+  - test
+  - build
+  - deploy
+
+test:
+  stage: test
+  script:
+    - "apk update"
+    - "apk add yarn"
+    - "yarn"
+    - "yarn test"
+
+build:
+  stage: build
+  script:
+    - "apk update"
+    - "apk add yarn"
+    - "yarn"
+    - "yarn build"
+  artifacts:
+    paths:
+      - build
+
+prod deploy:
+  environment: Production
+  image: python:3.7.0b4-alpine3.7
+  stage: deploy
+  only:
+    - prod
+  script:
+    - "export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID"
+    - "export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_KEY"
+    - "export AWS_DEFAULT_REGION=us-east-1"
+    - "pip install awscli"
+    - "aws s3 sync ./build s3://kpitzenio-hosting-mobilehub-841913723"
+
+dev deploy:
+  environment: Development
+  image: python:3.7.0b4-alpine3.7
+  stage: deploy
+  only:
+    - master
+  script:
+    - "export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID"
+    - "export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_KEY"
+    - "export AWS_DEFAULT_REGION=us-east-1"
+    - "pip install awscli"
+    - "aws s3 sync ./build s3://dev.kpitzen.io"
