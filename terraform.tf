@@ -38,7 +38,7 @@ locals {
 resource "aws_cloudfront_distribution" "prod_distribution" {
   origin {
     domain_name = "${aws_s3_bucket.prod_bucket.bucket_regional_domain_name}"
-    origin_id   = "${locals.s3_prod_origin_id}"
+    origin_id   = "${local.s3_prod_origin_id}"
   }
 
   comment = "Cloudfront Distribution for prod kpitzen.io"
@@ -58,7 +58,7 @@ resource "aws_cloudfront_distribution" "prod_distribution" {
 resource "aws_cloudfront_distribution" "dev_distribution" {
   origin {
     domain_name = "${aws_s3_bucket.dev_bucket.bucket_regional_domain_name}"
-    origin_id   = "${locals.s3_dev_origin_id}"
+    origin_id   = "${local.s3_dev_origin_id}"
   }
 
   comment = "Cloudfront Distribution for dev kpitzen.io"
