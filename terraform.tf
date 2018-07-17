@@ -49,6 +49,8 @@ resource "aws_cloudfront_distribution" "prod_distribution" {
 
   enabled = true
 
+  default_root_object = "index.html"
+
   default_cache_behavior {
     allowed_methods        = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
     cached_methods         = ["GET", "HEAD"]
@@ -106,6 +108,8 @@ resource "aws_cloudfront_distribution" "dev_distribution" {
   comment = "Cloudfront Distribution for dev kpitzen.io"
 
   enabled = true
+
+  default_root_object = "index.html"
 
   default_cache_behavior {
     allowed_methods        = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
