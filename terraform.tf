@@ -39,6 +39,10 @@ resource "aws_cloudfront_distribution" "prod_distribution" {
   origin {
     domain_name = "${aws_s3_bucket.prod_bucket.bucket_regional_domain_name}"
     origin_id   = "${local.s3_prod_origin_id}"
+
+    s3_origin_config {
+      origin_access_identity = "${aws_cloudfront_origin_access_identity.prod_identity.cloudfront_access_identity_path}"
+    }
   }
 
   comment = "Cloudfront Distribution for prod kpitzen.io"
@@ -93,6 +97,10 @@ resource "aws_cloudfront_distribution" "dev_distribution" {
   origin {
     domain_name = "${aws_s3_bucket.dev_bucket.bucket_regional_domain_name}"
     origin_id   = "${local.s3_dev_origin_id}"
+
+    s3_origin_config {
+      origin_access_identity = "${aws_cloudfront_origin_access_identity.dev_identity.cloudfront_access_identity_path}"
+    }
   }
 
   comment = "Cloudfront Distribution for dev kpitzen.io"
@@ -141,4 +149,66 @@ resource "aws_cloudfront_distribution" "dev_distribution" {
     Name        = "kpitzen.io"
     Environment = "Dev"
   }
+}
+
+resource "aws_cloudfront_origin_access_identity" "prod_identity" {
+  comment = "Prod Access Identity"
+}
+
+resource "aws_cloudfront_origin_access_identity" "dev_identity" {
+  comment = "Dev Access Identity"
+}
+
+data "aws_iam_policy_document" "s3_prod_policy" {
+  statement {
+    actions   = ["s3:GetObject"]
+    resources = ["${aws_s3_bucket.prod_bucket.arn}/*"]
+
+    principals {
+      type        = "AWS"
+      identifiers = ["${aws_cloudfront_origin_access_identity.prod_identity.iam_arn}"]
+    }
+  }
+
+  statement {
+    actions   = ["s3:ListBucket"]
+    resources = ["${aws_s3_bucket.prod_bucket.arn}"]
+
+    principals {
+      type        = "AWS"
+      identifiers = ["${aws_cloudfront_origin_access_identity.prod_identity.iam_arn}"]
+    }
+  }
+}
+
+resource "aws_s3_bucket_policy" "prod_bucket_policy" {
+  bucket = "${aws_s3_bucket.prod_bucket.id}"
+  policy = "${data.aws_iam_policy_document.s3_prod_policy.json}"
+}
+
+data "aws_iam_policy_document" "s3_dev_policy" {
+  statement {
+    actions   = ["s3:GetObject"]
+    resources = ["${aws_s3_bucket.dev_bucket.arn}/*"]
+
+    principals {
+      type        = "AWS"
+      identifiers = ["${aws_cloudfront_origin_access_identity.dev_identity.iam_arn}"]
+    }
+  }
+
+  statement {
+    actions   = ["s3:ListBucket"]
+    resources = ["${aws_s3_bucket.dev_bucket.arn}"]
+
+    principals {
+      type        = "AWS"
+      identifiers = ["${aws_cloudfront_origin_access_identity.dev_identity.iam_arn}"]
+    }
+  }
+}
+
+resource "aws_s3_bucket_policy" "dev_bucket_policy" {
+  bucket = "${aws_s3_bucket.dev_bucket.id}"
+  policy = "${data.aws_iam_policy_document.s3_dev_policy.json}"
 }
