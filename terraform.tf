@@ -50,6 +50,12 @@ resource "aws_cloudfront_distribution" "prod_distribution" {
     cached_methods         = ["GET", "HEAD"]
     target_origin_id       = "${local.s3_prod_origin_id}"
     viewer_protocol_policy = "redirect-to-https"
+
+    forwarded_values {
+      cookies {
+        forward = "all"
+      }
+    }
   }
 
   restrictions {
@@ -96,6 +102,12 @@ resource "aws_cloudfront_distribution" "dev_distribution" {
     cached_methods         = ["GET", "HEAD"]
     target_origin_id       = "${local.s3_dev_origin_id}"
     viewer_protocol_policy = "redirect-to-https"
+
+    forwarded_values {
+      cookies {
+        forward = "all"
+      }
+    }
   }
 
   restrictions {
