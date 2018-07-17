@@ -1,8 +1,8 @@
 stages:
   - test
   - validate
-  - build
   - deploy infrastructure
+  - build
   - deploy code
 
 cache:
