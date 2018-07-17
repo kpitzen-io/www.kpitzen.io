@@ -55,6 +55,8 @@ resource "aws_cloudfront_distribution" "prod_distribution" {
       cookies {
         forward = "all"
       }
+
+      query_string = true
     }
   }
 
@@ -107,6 +109,8 @@ resource "aws_cloudfront_distribution" "dev_distribution" {
       cookies {
         forward = "all"
       }
+
+      query_string = true
     }
   }
 
