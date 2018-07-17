@@ -1,7 +1,12 @@
 stages:
   - test
+  - validate
   - build
   - deploy
+
+cache:
+  paths:
+    - .terraform
 
 test:
   stage: test
