@@ -72,7 +72,7 @@ prod deploy:
     - "export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_KEY"
     - "export AWS_DEFAULT_REGION=us-east-1"
     - "pip install awscli"
-    - "aws s3 sync ./build s3://www.kpitzen.io"
+    - "aws s3 sync ./build s3://prod-kpitzen.io"
 
 dev deploy:
   environment: Development
@@ -85,4 +85,4 @@ dev deploy:
     - "export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_KEY"
     - "export AWS_DEFAULT_REGION=us-east-1"
     - "pip install awscli"
-    - "aws s3 sync ./build s3://dev.kpitzen.io"
+    - "aws s3 sync ./build s3://dev-kpitzen.io"
